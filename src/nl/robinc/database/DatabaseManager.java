@@ -1,5 +1,6 @@
 package nl.robinc.database;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +14,7 @@ public class DatabaseManager {
 	private DatabaseManager() {
 		try {
 			Properties databaseProperties = new Properties();
-			databaseProperties.load(this.getClass().getClassLoader().getResourceAsStream("database.properties"));
+			databaseProperties.load(new FileInputStream("/Users/Rob/SDK/Properties/beurs.properties"));
 			
 			String url = databaseProperties.getProperty("jdbc.url");
 			String user = databaseProperties.getProperty("jdbc.username");
